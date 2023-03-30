@@ -11,3 +11,5 @@ export 'domain/rss_feed.dart';
 export 'domain/rss_image.dart';
 export 'domain/rss_item.dart';
 export 'domain/rss_source.dart';
+
+enum FeedType { Atom, Rss, Unknown }

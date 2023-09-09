@@ -17,7 +17,7 @@ class AtomItem {
   final List<AtomCategory>? categories;
   final List<AtomPerson>? contributors;
   final AtomSource? source;
-  final String? published;
+  final DateTime? published;
   final String? content;
   final String? summary;
   final String? rights;
@@ -62,7 +62,8 @@ class AtomItem {
           .findElements('source')
           .map((e) => AtomSource.parse(e))
           .firstOrNull,
-      published: element.findElements('published').firstOrNull?.text,
+      published:
+          parseDateTime(element.findElements('published').firstOrNull?.text),
       content: element.findElements('content').firstOrNull?.text,
       summary: element.findElements('summary').firstOrNull?.text,
       rights: element.findElements('rights').firstOrNull?.text,

@@ -19,8 +19,8 @@ import 'package:webfeed/domain/media/status.dart';
 import 'package:webfeed/domain/media/text.dart';
 import 'package:webfeed/domain/media/thumbnail.dart';
 import 'package:webfeed/domain/media/title.dart';
-import 'package:webfeed/util/xml.dart';
 import 'package:webfeed/util/iterable.dart';
+import 'package:webfeed/util/xml.dart';
 import 'package:xml/xml.dart';
 
 class Media {
@@ -107,7 +107,7 @@ class Media {
           .findElements('media:description')
           .map((e) => Description.parse(e))
           .firstOrNull,
-      keywords: element.findElements('media:keywords').firstOrNull?.text,
+      keywords: element.findElements('media:keywords').firstOrNull?.innerText,
       thumbnails: element
           .findElements('media:thumbnail')
           .map((e) => Thumbnail.parse(e))
@@ -140,7 +140,7 @@ class Media {
               .findElements('media:comments')
               .firstOrNull
               ?.findElements('media:comment')
-              .map((e) => e.text)
+              .map((e) => e.innerText)
               .toList() ??
           [],
       embed: element
@@ -151,14 +151,14 @@ class Media {
               .findElements('media:responses')
               .firstOrNull
               ?.findElements('media:response')
-              .map((e) => e.text)
+              .map((e) => e.innerText)
               .toList() ??
           [],
       backLinks: element
               .findElements('media:backLinks')
               .firstOrNull
               ?.findElements('media:backLink')
-              .map((e) => e.text)
+              .map((e) => e.innerText)
               .toList() ??
           [],
       status: element

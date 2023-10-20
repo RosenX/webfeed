@@ -83,7 +83,7 @@ void main() {
     expect(item.contributors!.first.uri, 'http://foo.bar.news/people/gin');
     expect(item.contributors!.first.email, 'gin@foo.bar.news');
 
-    expect(item.published, '2018-04-06T13:02:49Z');
+    expect(item.published, DateTime.parse('2018-04-06T13:02:49Z'));
     expect(item.summary, 'This is summary 1');
     expect(item.content, 'This is content 1');
     expect(item.rights, 'This is rights 1');
